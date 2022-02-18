@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+double Square(double a, double b) {
+   
+    cout << a * b;
+    return a * b;
+}
+
+int main()
+{
+   double a;double b;
+    cin >> a;
+    cin >> b;
+    Square(a,b); 
+}
