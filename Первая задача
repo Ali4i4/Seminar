@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+double santimetr(double a) {
+   
+    cout << a * 2.54;
+    return a * 2.54;
+}
+
+int main()
+{
+   double a;
+    cin >> a;
+    santimetr(a);
+    
+}
