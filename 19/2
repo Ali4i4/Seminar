@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a;
+    cout << "Введите a" << endl;
+    cin >> a;
+    while (a > 10)
+    {
+        a = a / 10; 
+        cout << a << endl;
+    }
+
+    return 0;
+}
