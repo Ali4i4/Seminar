@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int End(int a) 
+{
+    a = a % 10;
+    cout << "последняя цифра:" << a << endl;
+    return a;
+}
+
+int Preend(int b)
+{
+    if (b<10) {
+        cout << "задача не решаема" << endl;
+    } else {
+    b = b % 100;
+    b = b / 10;
+    cout << "предпоследняя цифра:" << b << endl; 
+    }
+    return b;
+}
+
+int main()
+{
+    int a; int b;
+    cout << "Введите число" << endl;
+    cin >> a;
+    b = a;
+    End(a);
+    Preend(b);
+    return 0;
+}
