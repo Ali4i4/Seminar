@@ -1,17 +1,18 @@
 #include <iostream>
 
-using namespace std;
+using namespace std;                            //Задача: вывести последнюю и предпоследнюю цифру числа//
 
-int End(int a) 
+int End(int a)                                  //функция 1//
 {
-    a = a % 10;
+    a = a % 10;                                 //остаток от деления//
     cout << "последняя цифра:" << a << endl;
     return a;
 }
 
-int Preend(int b)
+int Preend(int b)                               //функция 2//
 {
-    if (b<10) {
+    if (b<10)                                   //Если b<10, тогда //
+    {
         cout << "задача не решаема" << endl;
     } else {
     b = b % 100;
