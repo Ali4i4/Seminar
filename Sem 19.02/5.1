@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+//задача: назвать определённую цифру числа (слева)//
+
+//принцип: дано число a и искомая позиция числа а - n//
+//делать цикл пока а>10, то есть перейдём к последнему разряду, при этом увеличивая i//
+//также выполняя деление на 10, таким образом, узнаем, сколько всего разрядов//
+//делим изначальное число, заключённое в переменную b, на 10 в степени i - n//
+//далее делим полученное на 10 и берем остаток//
+
+int Super(long int a, long int b, int n, int i)
+{
+    b = a;
+    i = 1;
+    while (a > 10)
+    {
+        a = a / 10;
+        i = i + 1;
+    }
+    b = b / pow (10,i-n);
+    b = b % 10;
+    cout << "The answer is " << b;
+    return b;
+}
+
+int main()
+{
+   int i; int n; long int a; long int b;
+   cout << "Give the number = ";
+   cin >> a; cout << endl;
+   cout << "The position is ";
+   cin >> n; cout << endl;
+   Super (a, b, n, i);
+}
