@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+//задача = перевернуть число//
+
+//Дано число а с клавиатуры, делаем цикл на разбиение по разрядам, узнаем кол-во//
+// делаем заново цикл с n и уже зная i каждый раз а(n)//
+//то есть число разряда, умножаем на 10 в степени i - n //
+
+int main()
+{
+   long int a; int i; long int b; long int x;
+   
+    cout << "Введите число "; cin >> a; cout << endl;
+    b =  a;
+    
+    i = 1;
+    while (a > 10)
+        {
+            a = a / 10;
+            i = i + 1;
+        }
+    cout << "Кол-во разрядов " << i << endl; 
+    
+    cout << endl;
+    
+    int n; long int c;
+    c = b;
+    n = 0;
+    x = 0;
+    
+    while (n!=i)
+        {
+            cout << "круг " << n << ", " << endl;
+            cout << endl;
+            
+            c = b;
+            c = fmod (b, pow (10, n + 1));
+        
+            cout << "c = " << c << ", " << endl;
+            
+            c = (int) c / pow (10, n);
+            
+            cout << "c = " << c << ", " << endl;
+            
+            x = x + c * pow (10, i - n - 1);
+            cout << "x = " << x << endl; 
+            n = n + 1;
+            cout << endl;
+        }
+        
+    cout << "Ответ = " << x << endl;
+    return 0;
+}
