@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int Perestanovka (long int a, long int b, int n)
+{
+    while (a>0)
+    {
+        n = a % 10;
+        a = a / 10;
+        b = b * 10 + n;
+    }
+    cout << "Ответ: " << b;
+    return b;
+}
+
+int main()
+{
+    long int a; long int b; int n;
+    cout << "Введите число: "; 
+    cin >> a; 
+    cout << endl;
+    b = 0;
+    Perestanovka (a, b, n);
+    return 0;
+}
