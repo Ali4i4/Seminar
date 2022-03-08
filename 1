@@ -1,0 +1,69 @@
+#include <iostream>
+
+using namespace std;
+
+int maks (int i, int arr[], int max)
+{
+    int n;
+    for (n = 1; n < i; n++)
+    {
+        if (arr[n] >= max)
+            max = arr[n];
+    }
+    return max;
+}
+
+int minimal (int i, int arr[], int min)
+{
+    int n;
+    for (n = 1; n < i; n++)
+    {
+        if (arr[n] <= min)
+            min = arr[n];
+    }
+    return min;
+}
+
+int change (int arr[], int l, int c, int i)
+
+{   
+    int n;
+    for (n = 0; n < i; n++)
+    {
+        if (arr[n] == l)
+            arr[n] = c;
+        else 
+            if (arr[n] == c)
+            arr[n] = l;
+    }
+    return 0;
+}
+
+int main()
+{
+    int i;
+    cout << "Введите размер массива: ";
+    cin >> i;
+    int arr[i];
+    cout << "Введите элементы массива: ";
+    for (int n = 0; n < i; n++)
+    {
+        cin >> arr[n];
+        cout << ' ';
+    }
+    int max;
+    int min;
+    max = arr[0];
+    min = arr[0];
+    int l;
+    l = maks (i, arr, min);
+    int c;
+    c = minimal (i, arr, min);
+    cout << "Максимальное значение массива: " << l << endl;
+    cout << "Минимальное значение массива: "<< c << endl;
+    change (arr, l, c, i);
+    int n;
+    for (n = 0; n < i; n++)
+        cout << arr[n] << ' ';
+    return 0;
+}
