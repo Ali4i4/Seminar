@@ -1,0 +1,56 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string a;
+    int n = 0;
+    int i = 0;
+    int d = 0;
+    int e = 0;
+    int c = 0;
+    getline (cin, a);
+    char p[a.length()]; // массив для анализа строки
+    for (int i = 0; i < a.length(); i++) 
+    {
+        p[i] = a[i];
+    }
+    if (p[0] == 'a') // для первого слова
+    {
+        while (p[i] != ' ')
+        {
+            cout << p[i];
+            i++;
+        }
+        n = i;
+        cout << " ";
+        for (int i = 0; i < n; i++)
+            cout << p[i];
+        e = n + 1;
+    }
+    for (int c = e; c <= a.length(); c++)
+    {
+        while (p[c] != ' ')
+        {
+            cout << p[c];
+            c++;
+        }
+        cout << " ";
+        if (p[c + 1] == 'a')
+        {
+            c = c + 1;
+            d = c; // индекс начала слова
+            while (p[c] != ' ')
+            {
+                cout << p[c];
+                c++;
+            }
+            n = c; // конец слова 
+            cout << " "; // пробел между словами - дубликатами
+            for (d; d < n; d++) // дублируем слово
+                cout << p[d];
+        }
+    }
+    return 0;
+}
