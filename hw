@@ -2,55 +2,57 @@
 
 using namespace std;
 
+void Output (string p, int i, int n)
+{
+    for (i; i < n; i++)
+    {
+        cout << p[i];
+    }
+}
+
 int main()
 {
-    string a;
+    string p;
     int n = 0;
     int i = 0;
-    int d = 0;
     int e = 0;
-    int c = 0;
-    getline (cin, a);
-    char p[a.length()]; // массив для анализа строки
-    for (int i = 0; i < a.length(); i++) 
+    cout << "Введите строку: (после последнего слова обязательно должен быть введён пробел)" << endl;
+    getline (cin, p);
+    if (p[0] == 'A') // для первого слова
     {
-        p[i] = a[i];
-    }
-    if (p[0] == 'a') // для первого слова
-    {
+        i = 0;
         while (p[i] != ' ')
         {
             cout << p[i];
             i++;
         }
-        n = i;
+        n = i; // дубликат слова
         cout << " ";
-        for (int i = 0; i < n; i++)
-            cout << p[i];
-        e = n + 1;
+        int i = 0;
+        Output (p, i, n);
+        i = n - 1;
     }
-    for (int c = e; c <= a.length(); c++)
+    while (i < p.length())
     {
-        while (p[c] != ' ')
+        if ((p[i] != 'A') || (p[i - 1] != ' '))
         {
-            cout << p[c];
-            c++;
+            cout << p[i];
         }
-        cout << " ";
-        if (p[c + 1] == 'a')
+        else
         {
-            c = c + 1;
-            d = c; // индекс начала слова
-            while (p[c] != ' ')
+            if ((p[i] == 'A') && (p[i - 1] == ' '))
             {
-                cout << p[c];
-                c++;
+                n = i; //начало слова
+                e = n;
+                while (p[i] != ' ') // конец слова
+                    i++;
+                Output (p, n, i);
+                cout << " ";
+                Output (p, e, i);
+                cout << " ";
             }
-            n = c; // конец слова 
-            cout << " "; // пробел между словами - дубликатами
-            for (d; d < n; d++) // дублируем слово
-                cout << p[d];
         }
+        i++;
     }
     return 0;
 }
