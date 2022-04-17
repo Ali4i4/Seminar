@@ -6,18 +6,14 @@ void array (int n, int *a)
 {
     int i;
     for (int i = 0; i < n; i++)
-    {
         cin >> a[i];
-    }
 }
 
 int sum (int n, int* mas, int* mass)
 {
     int i;
     for (i = 0; i < n; i++)
-    {
         mas[i] = mas[i] + mass[i];
-    }
     return mas[i];
 }
 
@@ -25,9 +21,7 @@ int division (int n, int* mas, int* mass)
 {
     int i;
     for (int i = 0; i < n; i++)
-    {
         mas[i] = mas[i] - mass[i];
-    }
     return mas[i];
 }
 
@@ -47,17 +41,11 @@ int main()
     cout << "Введите элементы массива 2: ";
     array (n, mass);
     if (c == '+')
-    {
         sum(n, mas, mass);
-    }
     else
-    {
         division(n, mas, mass);
-    }
     cout << "Итог вычислений: "; 
     for (int i = 0; i < n; i++)
-    {
         cout << mas[i] << " ";
-    }
     return 0;
 }
