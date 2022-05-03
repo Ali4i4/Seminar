@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int divis(int a, int b)
+int divis (int a, int b)
 {
     if (b == 0)
         throw "Деление на ноль невозможно";
@@ -19,9 +19,9 @@ int main()
     cin >> b;
     try
     {
-        cout << "Результат: " << divis(a, b);
+        cout << "Результат: " << divis (a, b);
     }
-    catch(const char *ex)
+    catch (const char *ex)
     {
         cout << ex;
     }
