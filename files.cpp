@@ -24,10 +24,16 @@ string txt (string text)
 
 int main()
 {
-    string text;
-    int n;
+   string text;
+    string a;
+    int n = 0;
     ifstream fin("C:\\Users\\mi\\Desktop\\hello.txt"); // окрываем файл для чтения
-    getline(fin, text);
+    while (!fin.eof())
+    {
+        fin >> a;
+        text += a + ' ';
+        n++;
+    }
     fin.close();
     text = txt (text);
     int spc = 0;
