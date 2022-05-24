@@ -39,10 +39,6 @@ int main()
     int spc = 0;
     int i;
     int k;
-    for (i = 0; i < text.length(); i++) // узнаем, сколько слов
-        if (text[i] == ' ')
-            k += 1;
-    n = k + 1; 
     string vocab[n]; // массив всех слов текста
     string p;
     int ind = 0;
