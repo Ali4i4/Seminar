@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -101,7 +102,7 @@ int main()
         slovar[q][1] = to_string(num);
     }
     cout << endl;
-    ofstream.fout ("C:\\Users\\mi\\Desktop\\slovar.txt")
+    ofstream fout ("C:\\Users\\mi\\Desktop\\slovar.txt");
     for (i = 0; i < kol; i++)
         fout << slovar[i][0] << " [" << slovar[i][1] << "] " << endl;
     fout.close();
