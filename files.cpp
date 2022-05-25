@@ -3,9 +3,9 @@
 
 using namespace std;
 
-string txt (string text)
+string txt(string text)
 {
-    char x[text.length()];
+    char* x = new char[text.length()];
     for (int i = 0; i < text.length(); i++)
         x[i] = text[i];
     for (int i = 0; i < text.length(); i++)
@@ -24,7 +24,7 @@ string txt (string text)
 
 int main()
 {
-   string text;
+    string text;
     string a;
     int n = 0;
     ifstream fin("C:\\Users\\mi\\Desktop\\hello.txt"); // окрываем файл для чтения
@@ -35,18 +35,18 @@ int main()
         n++;
     }
     fin.close();
-    text = txt (text);
+    text = txt(text);
     int spc = 0;
     int i;
     int k;
-    string vocab[n]; // массив всех слов текста
+    string* vocab = new string[n];// массив всех слов текста
     string p;
     int ind = 0;
     for (i = 0; i < text.length(); i++)
     {
         if (text[i] != ' ')
             p += text[i];
-        else 
+        else
             if (text[i + 1] != ' ')
             {
                 vocab[ind] = p;
@@ -66,7 +66,7 @@ int main()
             spc++;
     }
     n -= spc;
-    string zapas[n];
+    string* zapas = new string[n];
     for (i = 0; i < n; i++)
         zapas[i] = vocab[i];
     int kol = 0; // количество не одинарных слов 
@@ -80,18 +80,17 @@ int main()
                 vocab[k] = k;
             }
         if (j > 0)
-        {
             kol++;
-        }
         else
             vocab[i] = "del."; // убираем одинарные слова
     }
-    string slovar[kol + 1][2];
+    string *slovar = new string[kol + 1];
+    int* count = new int[kol + 1];
     int q = 0;
     for (i = 0; i < n; i++)
         if (vocab[i] != "del.")
         {
-            slovar[q][0] = vocab[i];
+            slovar[q] = vocab[i];
             q++;
         }
     int num;
@@ -99,14 +98,14 @@ int main()
     {
         num = 0;
         for (i = 0; i < n; i++)
-            if (slovar[q][0] == zapas[i])
+            if (slovar[q] == zapas[i])
                 num++;
-        slovar[q][1] = to_string(num);
+        count[q] = num;
     }
     cout << endl;
-    ofstream fout ("C:\\Users\\mi\\Desktop\\slovar.txt");
+    ofstream fout("C:\\Users\\mi\\Desktop\\slovar.txt");
     for (i = 0; i < kol; i++)
-        fout << slovar[i][0] << " [" << slovar[i][1] << "] " << endl;
+        fout << slovar[i][0] << " [" << count[i] << "] " << endl;
     fout.close();
     return 0;
 }
