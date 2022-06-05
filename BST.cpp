@@ -78,11 +78,13 @@ int main() {
     leaf* root = NULL;
     int a;
     string b;
+    cout << "Введите число: ";
     getline(cin, b);
     while (b.length() != 0)
     {
         a = stoi(b);
         root = vvod(root, a);
+        cout << "Введите число: ";
         getline(cin, b);
     }
     cout << endl;
