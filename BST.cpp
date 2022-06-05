@@ -68,7 +68,7 @@ void findleaf(leaf* root, int minim) {
     if (root == NULL) return;
     else {
         if (root->value == minim)
-            cout << root->value;
+            cout << root->value << " ";
         findleaf(root->left, minim);
         findleaf(root->right, minim);
     }
